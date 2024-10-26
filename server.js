@@ -37,47 +37,16 @@ app.use((req, res, next) => {
   );
   next(); // Move to the next middleware
 });
-
 // Enabling CORS for all routes
 app.use(cors());
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
 // Routing setup
 app.use(routes);
-app.get("/", (req, res) => res.send("Express on Vercel"));
 // Setting the port for the application
 
 const port = process.env.PORT || 3003;
 // Starting the HTTP server on the defined port
-app.set("port", port);
-server.listen(port);
+app.listen(3000, () => console.log("Server ready on port 3000."));
 
-// Event listener for the 'listening' event
-server.on("listening", () => {
-  console.log(`Server is listening on port ${app.get("port")} ${port}`);
-});
-
-// Event listener for the 'error' event
-server.on("error", onError); // 192.168:3000
-function onError() {
-  // // Enhanced error handling with specific cases
-  // if (error.syscall !== "listen") {
-  //   throw error; // Rethrow non-listen errors
-  // }
-
-  const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
-
-  // Handling specific listen errors with custom messages
-  // switch (error.code) {
-  //   case "EACCES":
-  //     console.error(bind + " requires elevated privileges");
-  //     process.exit(1); // Exit the process with failure
-  //     break;
-  //   case "EADDRINUSE":
-  //     console.error(bind + " is already in use");
-  //     process.exit(1); // Exit the process with failure
-  //     break;
-  //   default:
-  //     throw error; // For other errors, rethrow
-  // }
-}
-module.exports = server;
+module.exports = app;
