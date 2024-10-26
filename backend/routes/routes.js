@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/users");
 const bcrypt = require("bcrypt");
 let users = [];
+router.get("/", (req, res, err) => res.send("Express on Vercel"));
 router.post("/api/signup", (req, res, err) => {
   console.log(req.body);
   bcrypt.hash(req.body?.password, 10).then((hash) => {

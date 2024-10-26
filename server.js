@@ -80,4 +80,4 @@ function onError() {
   //     throw error; // For other errors, rethrow
   // }
 }
-module.exports = app;
+module.exports = server;
