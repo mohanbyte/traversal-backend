@@ -3,8 +3,7 @@
   "name": "your-app-name",
   "version": "1.0.0",
   "scripts": {
-    "start": "node server.js",
-    "build": "echo 'No build step for Node.js app'"
+    "start": "node server.js"
   },
   "devDependencies": {
     "@types/node": "^17.0.42",
